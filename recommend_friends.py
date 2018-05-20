@@ -108,7 +108,7 @@ def load_friends(friends_filename):
 # it spend too much time,adjust len(friends) == maxnums
 # default : 150
 def get_more_friends(friends_filename,maxnums=150):
-
+	print("getting more friends.... its spend too much time ")
     friends = load_friends(friends_filename)
     count_friends_ = count_friends(friends)
     best_friends = sorted(count_friends_.items(),key=itemgetter(1),reverse=True)

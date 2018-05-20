@@ -30,11 +30,11 @@ def export_model(theme,tweets_filename,labels_filename):
     tweetClassifier.get_model(tweets_filename,labels_filename,model_file)
     return model_file
 
-def start_train_model(theme):
+def start_train_model(theme,proxy):
     tweets_filename = os.path.join('./Data',theme+'_tweets.json')
     labels_filename = os.path.join('./Data',theme+'_labels.json')
     # if you want get more data to train your model run:
-    train_labels(theme,'127.0.0.1:8123',tweets_filename,labels_filename)
+    train_labels(theme,proxy,tweets_filename,labels_filename)
     return export_model(theme,tweets_filename,labels_filename)
 
 
@@ -101,6 +101,7 @@ if __name__ == '__main__':
     sub_graphs_path = "./graphs/python_friends_subgraph.png"
     
     model_filename = start_train_model(theme)
+
     friends = get_friends_data(theme,proxy,model_filename,friends_filename)
     friends = {uid:friends[uid] for uid in friends if len(friends[uid]) > 0}
     friends = {uid:set(friends[uid]) for uid in friends}
@@ -116,3 +117,4 @@ if __name__ == '__main__':
     for i,sub_graph in enumerate(sub_graphs):
         n_nodes = sub_graph.nodes()
         print("{0} : {1} nodes".format(i,n_nodes))
+    
