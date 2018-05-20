@@ -4,9 +4,6 @@ import json
 
 def get_tweepyAPI(myproxy):
 	"""
-		use twitter API
-		create twitter APP and get necessary key and secrect
-		from https://apps.twitter.com
 	"""
 	keys = {}
 	with open('./Data/twitterAPIToken.json','r') as out:
