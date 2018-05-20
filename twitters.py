@@ -6,7 +6,7 @@ def get_tweepyAPI(myproxy):
 	"""
 	"""
 	keys = {}
-	with open('./Data/twitterAPIToken.json','r') as out:
+	with open('./Data/KeyAndSecret.json.json','r') as out:
 		keys = eval(out.read())
 	authorization = tweepy.OAuthHandler(keys["consumer_key"],keys["consumer_secret"])
 	authorization.set_access_token(keys["access_token"],keys["access_token_secret"])
